@@ -20,14 +20,20 @@ public class ScoreScript : MonoBehaviour {
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
-            GameEvents.OnIncreamentScore();
+            GameEvents.OnIncreamentScore(1);
+        if(Input.GetKeyDown(KeyCode.L))
+            GameEvents.OnChangeLevel("Game_Over");
     }
 
-    void ScoreChangedListener()
+    void ScoreChangedListener(int value)
     {
-        score++;
+        score += value;
         ScoreText.text = score.ToString();
     }
 
+    void OnDestroy()
+    {
+        GameEvents.increamentScore -= ScoreChangedListener;
+    }
 
 }
