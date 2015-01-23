@@ -4,6 +4,7 @@ using System;
 public class GameEventsScript {
 
 	public Action<int> increamentScore;
+	public Action<bool> toTranslate;
 
     private static GameEventsScript s_GameEvents;
     private static int s_HighScore;
@@ -57,5 +58,11 @@ public class GameEventsScript {
 	public void OnGameOver()
 	{
 		
+	}
+
+	public void OnMove(bool isMove)
+	{
+		if (toTranslate != null)
+			toTranslate (isMove);
 	}
 }

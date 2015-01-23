@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 	public float speed;
+	private Vector3 enemyPos;
+	private GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
+
 
 	// Use this for initialization
 	void Start () {
@@ -11,11 +14,10 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per framw
 	void FixedUpdate (){
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		
-		Vector3 movement = new Vector3 (moveHorizontal, 0.0f,0.0f );
-		rigidbody2D.velocity = movement * speed;
-	
+		if (this.transform.position.x >= enemyPos.x) {
+			this.rigidbody2D.velocity = new Vector2(0,0);
+			GameEvents.OnMove(true);
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D col){
@@ -23,5 +25,10 @@ public class PlayerScript : MonoBehaviour {
 			//GameOver
 			print("GameOver");
 		}
+	}
+
+	public void moveTo(Vector3 pos){
+		enemyPos = pos;
+		this.rigidbody2D.velocity = new Vector3 (1, 0, 0) * speed;
 	}
 }

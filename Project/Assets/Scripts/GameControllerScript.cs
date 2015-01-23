@@ -54,4 +54,5 @@ public class GameControllerScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D col) {
 	}
+
 }
