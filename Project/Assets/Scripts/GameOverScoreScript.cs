@@ -5,12 +5,11 @@ using System;
 
 public class GameOverScoreScript : MonoBehaviour {
 
-    public GameObject Controller;
     public Text textObject;
 
-    private static string gameOverString = "Score\n{0)\nHigh Score\n{1}";
+    private static string gameOverString = "Score\n{0}\nHigh Score\n{1}";
 
-    GameEventsScript GameEvents = GameEventsScript.GameEvents;
+    GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
 
     private int score;
     private int highScore;
@@ -21,9 +20,10 @@ public class GameOverScoreScript : MonoBehaviour {
         highScore = GameEvents.getHighScore();
         textObject.text = String.Format(gameOverString, score, highScore);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public void OnRestartButtonClick()
+    {
+        GameEvents.OnGameRestart();
+        Application.LoadLevel("Game_GUI");
+    }
 }

@@ -6,7 +6,7 @@ public class ScoreScript : MonoBehaviour {
 
     public Text ScoreText;
 
-    GameEventsScript GameEvents = GameEventsScript.GameEvents;
+    GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
 
     private int score;
 
@@ -22,12 +22,12 @@ public class ScoreScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A))
             GameEvents.OnIncreamentScore(1);
         if(Input.GetKeyDown(KeyCode.L))
-            GameEvents.OnChangeLevel("Game_Over");
+            Application.LoadLevel("game_over_GUI");
     }
 
     void ScoreChangedListener(int value)
     {
-        score += value;
+        score = value;
         ScoreText.text = score.ToString();
     }
 

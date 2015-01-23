@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class GameEventsScript : MonoBehaviour{
+public class GameEventsScript {
 
 	public Action<int> increamentScore;
 
@@ -15,11 +15,11 @@ public class GameEventsScript : MonoBehaviour{
         s_HighScore = 0;
     }
 
-    public static GameEventsScript GameEvents
+    public static GameEventsScript GameEventsInstance
     {
         get
         {
-            if (s_GameEvents == null)
+            if(s_GameEvents == null)
                 s_GameEvents = new GameEventsScript();
             return s_GameEvents;
         }
@@ -27,8 +27,11 @@ public class GameEventsScript : MonoBehaviour{
 
     public void OnIncreamentScore(int value)
     {
+        s_Score += value;
+        if (s_Score > s_HighScore)
+            s_HighScore = s_Score;
         if (increamentScore != null)
-            increamentScore(value);
+            increamentScore(s_Score);
     }
 
     public int getScore()
@@ -41,8 +44,8 @@ public class GameEventsScript : MonoBehaviour{
         return s_HighScore;
     }
 
-    public void OnChangeLevel(string nextLevel)
+    public void OnGameRestart()
     {
-        
+        s_Score = 0;
     }
 }
