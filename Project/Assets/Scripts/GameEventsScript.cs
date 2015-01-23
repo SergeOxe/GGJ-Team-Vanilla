@@ -11,8 +11,9 @@ public class GameEventsScript {
 
     private GameEventsScript()
     {
+        Debug.Log("Created new GameEventsScript");
         s_Score = 0;
-        s_HighScore = 0;
+        s_HighScore = PlayerPrefs.GetInt("high_score", 0);
     }
 
     public static GameEventsScript GameEventsInstance
@@ -27,15 +28,20 @@ public class GameEventsScript {
 
     public void OnIncreamentScore(int value)
     {
+        Debug.Log("Updating score (by " + value + ")");
         s_Score += value;
         if (s_Score > s_HighScore)
+        {
             s_HighScore = s_Score;
+            PlayerPrefs.SetInt("high_score", s_HighScore);
+        }
         if (increamentScore != null)
             increamentScore(s_Score);
     }
 
     public int getScore()
     {
+        Debug.Log("Getting score (" + s_Score + ")");
         return s_Score;
     }
 

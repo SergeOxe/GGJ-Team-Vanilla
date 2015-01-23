@@ -10,12 +10,14 @@ public class GameOverScoreScript : MonoBehaviour {
     private static string gameOverString = "Score\n{0}\nHigh Score\n{1}";
 
     GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
+    AudioSource ClickFX;
 
     private int score;
     private int highScore;
 
 	// Use this for initialization
 	void Start () {
+        ClickFX = GetComponent<AudioSource>();
         score = GameEvents.getScore();
         highScore = GameEvents.getHighScore();
         textObject.text = String.Format(gameOverString, score, highScore);
@@ -23,6 +25,7 @@ public class GameOverScoreScript : MonoBehaviour {
 
     public void OnRestartButtonClick()
     {
+        ClickFX.Play();
         GameEvents.OnGameRestart();
         Application.LoadLevel("Game_GUI");
     }
