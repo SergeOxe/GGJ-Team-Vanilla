@@ -13,7 +13,7 @@ public class hammerHeadScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = stick.collider2D.bounds.extents;
+		this.transform.position = new Vector3 (this.transform.position.x, stick.collider2D.bounds.max.y, 1);;
 	
 	}
 }
