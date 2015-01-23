@@ -10,8 +10,10 @@ public class GameControllerScript : MonoBehaviour {
 	public Collider2D circleCollider;
 	private bool canPress;
 	Vector2 size;
+	private bool collisionWithPlayer;
 	// Use this for initialization
 	void Start () {
+		collisionWithPlayer = false;
 		keyPressedTime = 0;
 		canPress = true;
 	}
@@ -33,6 +35,7 @@ public class GameControllerScript : MonoBehaviour {
 					this.rigidbody2D.AddForce ((new Vector2 (1, 0)) * forcePush);
 			}
 		}
+		
 	}
 
 	void changeLadderSize ()
@@ -45,5 +48,8 @@ public class GameControllerScript : MonoBehaviour {
 	void calcLength (float time){
 		if (time > maxTime) {
 		}
+	}
+
+	void OnCollisionEnter2D(Collision2D col) {
 	}
 }
