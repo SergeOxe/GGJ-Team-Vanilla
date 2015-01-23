@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\EnemyScript.cs" />
      <Compile Include="Assets\LadderScript.cs" />
+     <Compile Include="Assets\MainMenuScript.cs" />
      <Compile Include="Assets\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\ControllerScript.cs" />
      <Compile Include="Assets\Scripts\GameControllerScript.cs" />

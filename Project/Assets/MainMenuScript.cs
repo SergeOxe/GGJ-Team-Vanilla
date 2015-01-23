@@ -8,6 +8,6 @@ public class MainMenuScript : MonoBehaviour {
     public void OnPlayButtonClick()
     {
         GameEvents.OnGameRestart();
-        Application.LoadLevel("Game_GUI");
+        Application.LoadLevel("scene_serge");
     }
 }

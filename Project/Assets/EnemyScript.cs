@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyScript : MonoBehaviour {
-
+	private GameEventsScript gameEvents =  GameEventsScript.GameEventsInstance;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,7 +15,8 @@ public class EnemyScript : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.tag == "Hammer") {
-				Destroy (this.gameObject);
+			gameEvents.increamentScore(10);	
+			Destroy (this.gameObject);
 		}
 		if (collision.gameObject.tag == "Stick") {
 			Destroy (collision.gameObject.collider2D);
