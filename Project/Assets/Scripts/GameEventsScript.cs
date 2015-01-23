@@ -54,4 +54,8 @@ public class GameEventsScript {
     {
         s_Score = 0;
     }
+	public void OnGameOver()
+	{
+		
+	}
 }

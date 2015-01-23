@@ -9,12 +9,19 @@ public class PlayerScript : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+	// Update is called once per framw
+	void FixedUpdate (){
 		float moveHorizontal = Input.GetAxis ("Horizontal");
 		
 		Vector3 movement = new Vector3 (moveHorizontal, 0.0f,0.0f );
 		rigidbody2D.velocity = movement * speed;
 	
+	}
+
+	void OnCollisionEnter2D(Collision2D col){
+		if (col.gameObject.tag == "Enemy") {
+			//GameOver
+			print("GameOver");
+		}
 	}
 }

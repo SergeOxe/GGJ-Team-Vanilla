@@ -11,6 +11,7 @@ public class GameControllerScript : MonoBehaviour {
 	private bool canPress;
 	Vector2 size;
 	private bool collisionWithPlayer;
+	public GameObject head;
 	// Use this for initialization
 	void Start () {
 		collisionWithPlayer = false;
@@ -32,6 +33,7 @@ public class GameControllerScript : MonoBehaviour {
 					print (keyPressedTime);
 					calcLength (keyPressedTime);
 					keyPressedTime = 0;
+					this.rigidbody2D.isKinematic = false;
 					this.rigidbody2D.AddForce ((new Vector2 (1, 0)) * forcePush);
 			}
 		}
