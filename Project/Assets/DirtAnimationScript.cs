@@ -8,12 +8,31 @@ public class DirtAnimationScript : MonoBehaviour {
 
 	void Start () {
         anim = GetComponent<Animator>();
-        GameEvents.dritAnimation += OnPlayDirtAnimation;
+        GameEvents.dirtAnimation += OnPlayDirtAnimation;
 	}
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("Pressed D");
+            GameEvents.OnPlayDirtAnimation(this.transform.position);
+
+        }
+    }
 	
     void OnPlayDirtAnimation(Vector3 position) {
         this.transform.position = position;
         anim.SetBool("Play", true);
     }
-	
+
+    void StopAnimation()
+    {
+        anim.SetBool("Play", false);
+    }
+
+    void OnDestroy()
+    {
+        GameEvents.dirtAnimation -= OnPlayDirtAnimation;
+    }
 }
