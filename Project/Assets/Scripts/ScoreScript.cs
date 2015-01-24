@@ -6,6 +6,8 @@ public class ScoreScript : MonoBehaviour {
 
     public Text ScoreText;
 
+	public GameObject scoreObject;
+
     GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
 
     private int score;
@@ -28,7 +30,8 @@ public class ScoreScript : MonoBehaviour {
     void ScoreChangedListener(int value)
     {
         score = value;
-        ScoreText.text = score.ToString();
+		scoreObject.GetComponent<Text> ().text = score.ToString ();
+       // ScoreText.text = score.ToString();
     }
 
     void OnDestroy()
