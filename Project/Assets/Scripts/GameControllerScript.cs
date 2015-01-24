@@ -13,6 +13,7 @@ public class GameControllerScript : MonoBehaviour {
 	private bool collisionWithPlayer;
 	private GameObject head;
 	private GameObject hand;
+	private GameObject player;
 	// Use this for initialization
 	void Start () {
 		collisionWithPlayer = false;
@@ -20,6 +21,7 @@ public class GameControllerScript : MonoBehaviour {
 		canPress = true;
 		head = GameObject.FindGameObjectWithTag ("Hammer");
 		hand = GameObject.FindGameObjectWithTag ("Hand");
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
@@ -42,7 +44,14 @@ public class GameControllerScript : MonoBehaviour {
 					this.rigidbody2D.AddForce ((new Vector2 (1, 0)) * forcePush);
 			}
 		}
-		
+
+
+		if (this.gameObject.GetComponent<HingeJoint2D>().jointAngle >= 90) {
+			player.GetComponent<PlayerScript> ().moveTo (new Vector3(1.5f,1f,0f));
+			Destroy(this.gameObject);
+			Destroy(GameObject.FindGameObjectWithTag("Hand"));
+		}
+
 	}
 
 	void changeLadderSize ()
