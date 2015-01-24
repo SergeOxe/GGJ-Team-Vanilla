@@ -29,6 +29,7 @@ public class PlayerScript : MonoBehaviour {
 
 			if (!created){
 				GameObject hammerClone = Instantiate(hammer) as GameObject;
+				GameEventsScript.GameEventsInstance.OnResetHammer();
 				created = true;
 			}
 		}

@@ -10,6 +10,7 @@ public class GameEventsScript {
     private static GameEventsScript s_GameEvents;
     private static int s_HighScore;
     private static int s_Score;
+	private static bool playDirtAnimation = true;
 
     private GameEventsScript()
     {
@@ -68,8 +69,17 @@ public class GameEventsScript {
 
     public void OnPlayDirtAnimation(Vector3 pos)
     {
-        if (dirtAnimation != null)
-            dirtAnimation(pos);
+		if (playDirtAnimation && dirtAnimation != null) {
+			dirtAnimation (pos);
+		}
     }
+
+	public void OnResetHammer() {
+		playDirtAnimation = true;
+	}
+
+	public void OnHitMonster() {
+		playDirtAnimation = false;
+	}
 
 }

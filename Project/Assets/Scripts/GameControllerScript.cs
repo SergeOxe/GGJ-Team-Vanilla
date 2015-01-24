@@ -47,8 +47,8 @@ public class GameControllerScript : MonoBehaviour {
 
 
 		if (this.gameObject.GetComponent<HingeJoint2D>().jointAngle >= 90) {
-			player.GetComponent<PlayerScript> ().moveTo (new Vector3(1.5f,1f,0f));
-			GameEventsScript.GameEventsInstance.OnPlayDirtAnimation(GameObject.FindGameObjectWithTag("Hammer").gameObject.transform.position);
+			Vector3 moveToPos =  GameObject.FindGameObjectWithTag("Hammer").gameObject.transform.position;
+			GameEventsScript.GameEventsInstance.OnPlayDirtAnimation(moveToPos);
 			Destroy(GameObject.FindGameObjectWithTag("ham"));
 		}
 
