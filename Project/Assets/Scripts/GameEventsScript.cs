@@ -6,6 +6,7 @@ public class GameEventsScript {
 	public Action<int> increamentScore;
 	public Action<bool> toTranslate;
     public Action<Vector3> dirtAnimation;
+    public Action gameOver;
 
     private static GameEventsScript s_GameEvents;
     private static int s_HighScore;
@@ -58,7 +59,8 @@ public class GameEventsScript {
     }
 	public void OnGameOver()
 	{
-		
+        if (gameOver != null)
+            gameOver();
 	}
 
 	public void OnMove(bool isMove)
