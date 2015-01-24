@@ -13,7 +13,6 @@ public class GameEventsScript {
 
     private GameEventsScript()
     {
-        Debug.Log("Created new GameEventsScript");
         s_Score = 0;
         s_HighScore = PlayerPrefs.GetInt("high_score", 0);
     }
