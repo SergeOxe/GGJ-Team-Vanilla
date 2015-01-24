@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
 	void FixedUpdate (){
 		if (this.transform.position.x >= enemyPos.x) {
 			this.rigidbody2D.velocity = new Vector2(0,0);
+			this.GetComponent<Animator>().SetFloat("speed",0);
 			GameEvents.OnMove(true);
 			created = false;
 		}
@@ -45,6 +46,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	public void moveTo(Vector3 pos){
+		this.GetComponent<Animator>().SetFloat("speed",1);
 		enemyPos = pos;
 		this.rigidbody2D.velocity = new Vector3 (1, 0, 0) * speed;
 	}

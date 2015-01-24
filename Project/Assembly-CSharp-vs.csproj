@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\GameEventsScript.cs" />
      <Compile Include="Assets\Scripts\GameOverScoreScript.cs" />
      <Compile Include="Assets\Scripts\ScoreScript.cs" />
+     <Compile Include="Assets\SoundsScript.cs" />
      <Compile Include="Assets\hammerHeadScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
