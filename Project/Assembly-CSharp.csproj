@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\BackgroundColliderScript.cs" />
      <Compile Include="Assets\BoundScript.cs" />
+     <Compile Include="Assets\DirtAnimationScript.cs" />
      <Compile Include="Assets\EnemyScript.cs" />
      <Compile Include="Assets\LadderScript.cs" />
      <Compile Include="Assets\MainMenuScript.cs" />

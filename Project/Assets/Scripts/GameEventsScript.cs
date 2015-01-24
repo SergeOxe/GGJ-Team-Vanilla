@@ -5,6 +5,7 @@ public class GameEventsScript {
 
 	public Action<int> increamentScore;
 	public Action<bool> toTranslate;
+    public Action<Vector3> dritAnimation;
 
     private static GameEventsScript s_GameEvents;
     private static int s_HighScore;
@@ -65,5 +66,11 @@ public class GameEventsScript {
 		if (toTranslate != null)
 			toTranslate (isMove);
 	}
+
+    public void OnPlayDirtAnimation(Vector3 pos)
+    {
+        if (dritAnimation != null)
+            dritAnimation(pos);
+    }
 
 }
