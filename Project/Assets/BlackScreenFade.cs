@@ -7,7 +7,7 @@ public class BlackScreenFade : MonoBehaviour {
     SpriteRenderer blackScreen;
     bool gameOver = false;
     float gameOverTime;
-    public float fadeSpeed = 0.5f;
+    public float fadeSpeed = 2f;
 
     void Start()
     {
