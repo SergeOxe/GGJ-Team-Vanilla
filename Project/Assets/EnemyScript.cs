@@ -25,14 +25,18 @@ public class EnemyScript : MonoBehaviour {
 		print (collision.gameObject.tag);
 		//player.GetComponent<PlayerScript> ().moveTo (this.transform.position);
 		if (collision.gameObject.tag == "HammerHead") {
-            anim.SetTrigger("explode");
-			gameEvents.OnIncreamentScore(10);	
-			//Destroy(collision.gameObject);
+			gameEvents.OnHitMonster();
+			anim.SetTrigger("explode");
+			player.GetComponent<PlayerScript> ().moveTo (this.transform.position);
+			gameEvents.OnIncreamentScore(10);
 			Instantiate(nextEnemy,new Vector3(Random.Range (minX,maxX),this.transform.position.y,0),Quaternion.identity);
+			Destroy(this.gameObject.collider2D);
+			//Destroy(collision.gameObject);
+			//Destroy(this.gameObject);
 			
 		}
 		if (collision.gameObject.tag == "Stick") {
-			Destroy (collision.gameObject.collider2D);
+			GameEventsScript.GameEventsInstance.OnPlayDirtAnimation(GameObject.FindGameObjectWithTag("Hammer").transform.position);
 		}
 	}
 
