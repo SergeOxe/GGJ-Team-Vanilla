@@ -27,6 +27,6 @@ public class GameOverScoreScript : MonoBehaviour {
     {
         ClickFX.Play();
         GameEvents.OnGameRestart();
-        Application.LoadLevel("Game_GUI");
+        Application.LoadLevel("GameScene");
     }
 }

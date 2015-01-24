@@ -31,6 +31,7 @@ public class GameControllerScript : MonoBehaviour {
 					playerPressed = true;
 					keyPressedTime += Time.deltaTime;
 					changeLadderSize ();
+					this.GetComponent<AudioSource>().Play();
 			}
 
 			if (Input.GetMouseButtonUp (0) && playerPressed) {

@@ -3,7 +3,8 @@ using System.Collections;
 
 public class SoundsScript : MonoBehaviour {
 	
-	AudioSource ClickFX;
+	public AudioSource ClickFX;
+	public AudioClip audio;
 
 	void Start(){
 		ClickFX = GetComponent<AudioSource>();
@@ -11,5 +12,8 @@ public class SoundsScript : MonoBehaviour {
 
 	void playSound(){
 		ClickFX.Play();
+	}
+	void playAudioClip(){
+		AudioSource.PlayClipAtPoint (audio, transform.position);
 	}
 }

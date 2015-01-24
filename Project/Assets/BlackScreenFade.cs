@@ -20,13 +20,14 @@ public class BlackScreenFade : MonoBehaviour {
         if (gameOver)
         {
             blackScreen.color = Color.Lerp(blackScreen.color, Color.black, fadeSpeed * Time.deltaTime);
-            if (Time.time - gameOverTime >= 2f)
-                Application.LoadLevel("Game_GUI");
+            if (Time.time - gameOverTime >= 0f)
+				Application.LoadLevel("game_over_GUI");
         }
     }
 
     void GameOverListener()
     {
+		Debug.Log ("Got here!!!");
         gameOver = true;
         gameOverTime = Time.time;
     }

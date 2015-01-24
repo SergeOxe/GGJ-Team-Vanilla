@@ -27,7 +27,6 @@ public class EnemyScript : MonoBehaviour {
 		if (collision.gameObject.tag == "HammerHead") {
 			gameEvents.OnHitMonster();
 			anim.SetTrigger("explode");
-			gameEvents.OnIncreamentScore(10);
 			Instantiate(nextEnemy,new Vector3(Random.Range (minX,maxX),this.transform.position.y,0),Quaternion.identity);
 			Destroy(this.gameObject.collider2D);
 			//player.GetComponent<PlayerScript> ().moveTo (this.transform.position);

@@ -18,6 +18,6 @@ public class MainMenuScript : MonoBehaviour {
         ClickFX.volume = 100;
         ClickFX.Play();
         GameEvents.OnGameRestart();
-        Application.LoadLevel("scene_serge");
+        Application.LoadLevel("GameScene");
     }
 }
