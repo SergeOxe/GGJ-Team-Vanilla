@@ -11,13 +11,15 @@ public class GameControllerScript : MonoBehaviour {
 	private bool canPress;
 	Vector2 size;
 	private bool collisionWithPlayer;
-	public GameObject head;
+	private GameObject head;
+	private GameObject hand;
 	// Use this for initialization
 	void Start () {
 		collisionWithPlayer = false;
 		keyPressedTime = 0;
 		canPress = true;
 		head = GameObject.FindGameObjectWithTag ("Hammer");
+		hand = GameObject.FindGameObjectWithTag ("Hand");
 	}
 	
 	// Update is called once per frame
@@ -34,6 +36,8 @@ public class GameControllerScript : MonoBehaviour {
 					print (keyPressedTime);
 					calcLength (keyPressedTime);
 					keyPressedTime = 0;
+					hand.rigidbody2D.isKinematic = false;
+					hand.rigidbody2D.AddForce ((new Vector2 (1, 0)) * forcePush*3);
 					this.rigidbody2D.isKinematic = false;
 					this.rigidbody2D.AddForce ((new Vector2 (1, 0)) * forcePush);
 			}
