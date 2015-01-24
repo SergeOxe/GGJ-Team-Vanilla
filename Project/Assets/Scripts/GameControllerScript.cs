@@ -48,8 +48,7 @@ public class GameControllerScript : MonoBehaviour {
 
 		if (this.gameObject.GetComponent<HingeJoint2D>().jointAngle >= 90) {
 			player.GetComponent<PlayerScript> ().moveTo (new Vector3(1.5f,1f,0f));
-			Destroy(this.gameObject);
-			Destroy(GameObject.FindGameObjectWithTag("Hand"));
+			Destroy(GameObject.FindGameObjectWithTag("ham"));
 		}
 
 	}
