@@ -5,11 +5,11 @@ public class PlayerScript : MonoBehaviour {
 	public float speed;
 	private Vector3 enemyPos;
 	private GameEventsScript GameEvents = GameEventsScript.GameEventsInstance;
-
+	private GameObject origin;
 
 	// Use this for initialization
 	void Start () {
-	
+		origin = GameObject.FindGameObjectWithTag ("PlayerOrigin");
 	}
 	
 	// Update is called once per framw
@@ -18,6 +18,12 @@ public class PlayerScript : MonoBehaviour {
 			this.rigidbody2D.velocity = new Vector2(0,0);
 			GameEvents.OnMove(true);
 		}
+		if (this.transform.position.x < origin.transform.position.x) {
+			this.rigidbody2D.velocity = new Vector2(0,0);
+			GameEvents.OnMove(false);
+		}
+
+
 	}
 
 	void OnCollisionEnter2D(Collision2D col){

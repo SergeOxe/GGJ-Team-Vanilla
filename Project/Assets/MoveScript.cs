@@ -7,10 +7,11 @@ public class MoveScript : MonoBehaviour {
 
 	public float speed;
 	bool isMoving = false;
+	private GameObject origin;
 
 	void Start() {
 		GameEvents.toTranslate += setIsMoving;
-
+		origin = GameObject.FindGameObjectWithTag ("PlayerOrigin");
 	}
 	
 	// Update is called once per frame

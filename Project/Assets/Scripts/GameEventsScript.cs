@@ -65,4 +65,5 @@ public class GameEventsScript {
 		if (toTranslate != null)
 			toTranslate (isMove);
 	}
+
 }
