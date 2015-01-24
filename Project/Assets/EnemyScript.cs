@@ -15,7 +15,6 @@ public class EnemyScript : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) {
-		print (player.tag);
 		player.GetComponent<PlayerScript> ().moveTo (this.transform.position);
 		if (collision.gameObject.tag == "Hammer") {
 			gameEvents.OnIncreamentScore(10);	

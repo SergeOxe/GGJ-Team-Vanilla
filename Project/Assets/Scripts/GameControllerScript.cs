@@ -17,6 +17,7 @@ public class GameControllerScript : MonoBehaviour {
 		collisionWithPlayer = false;
 		keyPressedTime = 0;
 		canPress = true;
+		head = GameObject.FindGameObjectWithTag ("Hammer");
 	}
 	
 	// Update is called once per frame
@@ -44,6 +45,7 @@ public class GameControllerScript : MonoBehaviour {
 	{
 		float yScale = this.transform.localScale.y +  growSpeed;
 		this.transform.localScale = new Vector3 (this.transform.localScale.x, yScale, 0);
+		head.transform.localScale = new Vector3 (head.transform.localScale.x, (1/yScale), 0);
 		//this.transform.position = new Vector3 (this.transform.position.x,this.transform.position.y + (growSpeed-1)/2,1);
 	}
 
